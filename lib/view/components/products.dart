@@ -29,7 +29,8 @@ class _ProductsState extends State<Products> {
                     (e) => Card(
                       child: GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pushNamed("detailpage",);
+                          Navigator.pushNamed(context, "details", arguments: e);
+                          print(e);
                         },
                         child: Container(
                           height: 100,
@@ -53,7 +54,7 @@ class _ProductsState extends State<Products> {
                                     fontSize: 14, fontWeight: FontWeight.w500),
                               ),
                               Text(
-                                e["Price"],
+                                "${e["Price"]}",
                                 style: TextStyle(color: Colors.grey),
                               ),
                             ],

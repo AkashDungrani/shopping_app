@@ -8,10 +8,11 @@ import 'package:pr_test_1/view/screens/homepage.dart';
 
 void main() {
   runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
     routes: {
       "/": (context) => ShoppingApp(),
       "category": (context) => Category_Page(),
-      "detailpage":(context) => DetailsPage(),
+      "details": (context) => DetailsPage(),
     },
   ));
 }
@@ -27,23 +28,11 @@ class _ShoppingAppState extends State<ShoppingApp> {
   int cupertinoindex = 0;
   @override
   Widget build(BuildContext context) {
-    return CupertinoApp(
-        debugShowCheckedModeBanner: false,
-        home: CupertinoPageScaffold(
-          navigationBar: CupertinoNavigationBar(
-            middle: Text(
-              "E-Commerce App",
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
-            ),
-            trailing: GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, "category");
-                },
-                child: Icon(Icons.menu)),
-          ),
-          child: Column(
+    return CupertinoPageScaffold(
+      navigationBar: CupertinoNavigationBar(middle: Text("E-Commerce App")),
+      child: Column(
             children: [
-              Spacer(),
+             Spacer(),
               Stack(
                 alignment: Alignment.bottomCenter,
                 children: [
@@ -79,6 +68,6 @@ class _ShoppingAppState extends State<ShoppingApp> {
               ),
             ],
           ),
-        ));
+    );
   }
 }
